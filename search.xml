@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>N1BOOK</title>
+      <link href="/2023/11/07/N1BOOK/"/>
+      <url>/2023/11/07/N1BOOK/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> ctf </category>
+          
+          <category> writeup </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ctf </tag>
+            
+            <tag> writeup </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>sqli-labs</title>
       <link href="/2023/11/06/sqli-labs/"/>
       <url>/2023/11/06/sqli-labs/</url>
