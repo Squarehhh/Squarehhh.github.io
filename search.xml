@@ -467,35 +467,6 @@
     
     
     <entry>
-      <title>Http请求头</title>
-      <link href="/2023/11/03/http%E8%AF%B7%E6%B1%82%E5%A4%B4%E7%B1%BB%E5%9E%8B%E9%A2%98/"/>
-      <url>/2023/11/03/http%E8%AF%B7%E6%B1%82%E5%A4%B4%E7%B1%BB%E5%9E%8B%E9%A2%98/</url>
-      
-        <content type="html"><![CDATA[<p>打开网页<img src="/../assets/image-20231103174305318.png" alt="image-20231103174305318"></p><p>在源码里面可以看见<img src="https://s2.loli.net/2023/11/04/qodnjrHBu2chwLU.png" alt="image-20231103174323627.png"></p><p>猜测在&#x2F;robots.txt<img src="https://s2.loli.net/2023/11/04/A5bqMhuQ7VyNFUz.png" alt="image-20231103174346380.png"></p><p>进入目标文件夹得到账号密码</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">username:admin</span><br><span class="line">password:@dm1N123456r00t#</span><br></pre></td></tr></table></figure><p>使用post方式提交</p><p><img src="https://s2.loli.net/2023/11/04/tQDvqNegnc79BWX.png" alt="image-20231103174625865.png"></p><p>对网页抓包，更改Referer内容为sycsec.com</p><p><img src="https://s2.loli.net/2023/11/04/Oc87y4Y591krFsq.png" alt="image-20231103174750798.png"></p><p>改浏览器为Syclove</p><p>r<img src="https://s2.loli.net/2023/11/04/mp6VfCyJNTR3WeS.png" alt="image-20231103174830405.png"></p><p>请求头中添加X-forwarded-for:127.0.0.1</p><p><img src="https://s2.loli.net/2023/11/04/P1qZeiVnoEJWMNh.png" alt="image-20231103174919839.png"></p><p>添加via：Syc.vip</p><p><img src="https://s2.loli.net/2023/11/04/NQ52tznvRLTwcEj.png" alt="image-20231103175027221.png"></p><p>添加O2TAKUXX:GiveMeFlag</p><p><img src="https://s2.loli.net/2023/11/04/3vMT7tqrQH9BDxN.png" alt="image-20231103175119952.png"></p><p>得到flag</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SYC&#123;HttP_1s_E@sY&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> ctf </category>
-          
-          <category> web </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> ctf </tag>
-            
-            <tag> web </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Aegis招新wp</title>
       <link href="/2023/11/03/Writeup/"/>
       <url>/2023/11/03/Writeup/</url>
@@ -517,6 +488,35 @@
             <tag> ctf </tag>
             
             <tag> wp </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Http请求头</title>
+      <link href="/2023/11/03/http%E8%AF%B7%E6%B1%82%E5%A4%B4%E7%B1%BB%E5%9E%8B%E9%A2%98/"/>
+      <url>/2023/11/03/http%E8%AF%B7%E6%B1%82%E5%A4%B4%E7%B1%BB%E5%9E%8B%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<p>打开网页<img src="/../assets/image-20231103174305318.png" alt="image-20231103174305318"></p><p>在源码里面可以看见<img src="https://s2.loli.net/2023/11/04/qodnjrHBu2chwLU.png" alt="image-20231103174323627.png"></p><p>猜测在&#x2F;robots.txt<img src="https://s2.loli.net/2023/11/04/A5bqMhuQ7VyNFUz.png" alt="image-20231103174346380.png"></p><p>进入目标文件夹得到账号密码</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">username:admin</span><br><span class="line">password:@dm1N123456r00t#</span><br></pre></td></tr></table></figure><p>使用post方式提交</p><p><img src="https://s2.loli.net/2023/11/04/tQDvqNegnc79BWX.png" alt="image-20231103174625865.png"></p><p>对网页抓包，更改Referer内容为sycsec.com</p><p><img src="https://s2.loli.net/2023/11/04/Oc87y4Y591krFsq.png" alt="image-20231103174750798.png"></p><p>改浏览器为Syclove</p><p>r<img src="https://s2.loli.net/2023/11/04/mp6VfCyJNTR3WeS.png" alt="image-20231103174830405.png"></p><p>请求头中添加X-forwarded-for:127.0.0.1</p><p><img src="https://s2.loli.net/2023/11/04/P1qZeiVnoEJWMNh.png" alt="image-20231103174919839.png"></p><p>添加via：Syc.vip</p><p><img src="https://s2.loli.net/2023/11/04/NQ52tznvRLTwcEj.png" alt="image-20231103175027221.png"></p><p>添加O2TAKUXX:GiveMeFlag</p><p><img src="https://s2.loli.net/2023/11/04/3vMT7tqrQH9BDxN.png" alt="image-20231103175119952.png"></p><p>得到flag</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SYC&#123;HttP_1s_E@sY&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> ctf </category>
+          
+          <category> web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ctf </tag>
+            
+            <tag> web </tag>
             
         </tags>
       
