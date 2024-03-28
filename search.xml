@@ -4,6 +4,38 @@
   
     
     <entry>
+      <title></title>
+      <link href="/2024/03/20/%E9%9D%A2%E7%BB%8F/"/>
+      <url>/2024/03/20/%E9%9D%A2%E7%BB%8F/</url>
+      
+        <content type="html"><![CDATA[<h1 id="长亭一面"><a href="#长亭一面" class="headerlink" title="长亭一面"></a>长亭一面</h1><ul><li>自我介绍</li><li>了解常见的漏洞吗<ul><li>SQL注入啊，SSRF啊什么什么的讲了一通</li></ul></li><li>SQL注入无回显的情况下怎么利用呢<ul><li>讲了下盲注</li></ul></li><li>了解twos的一些漏洞吗<ul><li>没听清，我一直读的唉唉艾斯（IIS）</li></ul></li><li>那你了解weblogic的一些漏洞吗<ul><li>说了反序列化</li></ul></li><li>你做过web项目开发，讲讲<ul><li>说了用springboot开发</li></ul></li><li>那你知道springboot的一些漏洞吗<ul><li>说了个Framework反序列化漏洞，还有个Actuator泄露</li></ul></li><li>Actuator泄露能展开讲讲吗<ul><li>大概讲了下泄露了什么，怎么利用</li></ul></li><li>了解Java相关漏洞吗<ul><li>说了shiro反序列化漏洞，说了下原理</li></ul></li><li>会追CC链吗<ul><li>讲了CC3和一个CB链</li></ul></li><li>了解内存马吗<ul><li>大致讲了下原理</li></ul></li><li>反问<ul><li>公司做什么（大致就是有师傅带着进行一些攻防，渗透测试）</li><li>twos是什么（面试官讲了以后才知道就是IIS）</li></ul></li></ul>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>windows提权</title>
+      <link href="/2024/03/19/windows%E6%8F%90%E6%9D%83/"/>
+      <url>/2024/03/19/windows%E6%8F%90%E6%9D%83/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Windows提权"><a href="#Windows提权" class="headerlink" title="Windows提权"></a>Windows提权</h1><h2 id="Windows-用户与组"><a href="#Windows-用户与组" class="headerlink" title="Windows 用户与组"></a>Windows 用户与组</h2><ul><li>guest</li><li>user</li><li>administrator</li><li>system</li></ul><p><strong>用户相关命令</strong></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">net user</span><br><span class="line">net user test</span><br><span class="line">net user test passwd /add</span><br><span class="line">net user test /del</span><br><span class="line">net user test$ passwd /add</span><br></pre></td></tr></table></figure><p><strong>组相关命令</strong></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">net localgroup</span><br><span class="line">net localgroup administrators test /add</span><br><span class="line">net localgroup testgroup /add</span><br></pre></td></tr></table></figure><h2 id="Potato家族提权"><a href="#Potato家族提权" class="headerlink" title="Potato家族提权"></a>Potato家族提权</h2><p>通过各种方法在本地（NTLM-relay）中继获取SYSTEM令牌，再模拟令牌执行命令</p><p><strong>提权条件</strong></p><ul><li>获取最高权限令牌 –token</li><li><strong>SeImpersonatePrivilege</strong>或<strong>SeAssignPrimaryTokenPrivilege</strong>权限</li></ul><p>一下用户拥有<strong>SeImpersonatePrivilege</strong>权限：</p><ul><li>本地管理员账户和本地服务账户（不包括管理员组普通账户）</li><li>由SCM（服务控制管理器）启动的服务</li><li>由组件对象模型（COM）基础结构启动的并配置为在特定账户下运行的COM服务器</li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 渗透测试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>POC编写</title>
       <link href="/2024/03/18/POC%E7%BC%96%E5%86%99/"/>
       <url>/2024/03/18/POC%E7%BC%96%E5%86%99/</url>
