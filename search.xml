@@ -4,13 +4,19 @@
   
     
     <entry>
-      <title></title>
-      <link href="/2024/03/20/%E9%9D%A2%E7%BB%8F/"/>
-      <url>/2024/03/20/%E9%9D%A2%E7%BB%8F/</url>
+      <title>长亭面经（已offer）</title>
+      <link href="/2024/03/30/%E9%9D%A2%E7%BB%8F/"/>
+      <url>/2024/03/30/%E9%9D%A2%E7%BB%8F/</url>
       
-        <content type="html"><![CDATA[<h1 id="长亭一面"><a href="#长亭一面" class="headerlink" title="长亭一面"></a>长亭一面</h1><ul><li>自我介绍</li><li>了解常见的漏洞吗<ul><li>SQL注入啊，SSRF啊什么什么的讲了一通</li></ul></li><li>SQL注入无回显的情况下怎么利用呢<ul><li>讲了下盲注</li></ul></li><li>了解twos的一些漏洞吗<ul><li>没听清，我一直读的唉唉艾斯（IIS）</li></ul></li><li>那你了解weblogic的一些漏洞吗<ul><li>说了反序列化</li></ul></li><li>你做过web项目开发，讲讲<ul><li>说了用springboot开发</li></ul></li><li>那你知道springboot的一些漏洞吗<ul><li>说了个Framework反序列化漏洞，还有个Actuator泄露</li></ul></li><li>Actuator泄露能展开讲讲吗<ul><li>大概讲了下泄露了什么，怎么利用</li></ul></li><li>了解Java相关漏洞吗<ul><li>说了shiro反序列化漏洞，说了下原理</li></ul></li><li>会追CC链吗<ul><li>讲了CC3和一个CB链</li></ul></li><li>了解内存马吗<ul><li>大致讲了下原理</li></ul></li><li>反问<ul><li>公司做什么（大致就是有师傅带着进行一些攻防，渗透测试）</li><li>twos是什么（面试官讲了以后才知道就是IIS）</li></ul></li></ul>]]></content>
+        <content type="html"><![CDATA[<h1 id="长亭一面"><a href="#长亭一面" class="headerlink" title="长亭一面"></a>长亭一面</h1><ul><li>自我介绍</li><li>了解常见的漏洞吗<ul><li>SQL注入啊，SSRF啊什么什么的讲了一通</li></ul></li><li>SQL注入无回显的情况下怎么利用呢<ul><li>讲了下盲注</li></ul></li><li>了解twos的一些漏洞吗<ul><li>没听清，我一直读的唉唉艾斯（IIS）</li></ul></li><li>那你了解weblogic的一些漏洞吗<ul><li>说了反序列化</li></ul></li><li>你做过web项目开发，讲讲<ul><li>说了用springboot开发</li></ul></li><li>那你知道springboot的一些漏洞吗<ul><li>说了个Framework反序列化漏洞，还有个Actuator泄露</li></ul></li><li>Actuator泄露能展开讲讲吗<ul><li>大概讲了下泄露了什么，怎么利用</li></ul></li><li>了解Java相关漏洞吗<ul><li>说了shiro反序列化漏洞，说了下原理</li></ul></li><li>会追CC链吗<ul><li>讲了CC3和一个CB链</li></ul></li><li>了解内存马吗<ul><li>大致讲了下原理</li></ul></li><li>反问<ul><li>公司做什么（大致就是有师傅带着进行一些攻防，渗透测试）</li><li>twos是什么（面试官讲了以后才知道就是IIS）</li></ul></li></ul><h1 id="长亭二面"><a href="#长亭二面" class="headerlink" title="长亭二面"></a>长亭二面</h1><ul><li><p>自我介绍</p></li><li><p>什么时间开始接触信息安全</p></li><li><p>通过什么途径学习</p></li><li><p>参加过哪些比赛，比较有名的</p></li><li><p>cert成员主要做什么</p></li><li><p>测试对象</p></li><li><p>sql注入类型</p><ul><li>盲注，堆叠啥的讲了一通</li></ul></li><li><p>特殊的注入</p><ul><li>二次注入，宽字节注入</li></ul></li><li><p>你sql注入的一般流程</p><ul><li>找注入点，fuzz过滤什么什么的。。。</li></ul></li><li><p>会用工具协助吗</p><ul><li>sqlmap</li></ul></li><li><p>浏览器输入域名到浏览器有一个回显，说一下这个过程是怎么实现的</p><ul><li>按理解讲了一下，不知道对不对</li></ul></li><li><p>sqlmap怎么对cookie进行注入</p><ul><li>不会。。</li></ul></li><li><p>用过msf吗</p><ul><li>讲了下对生成木马做源码级免杀，讲了一下原理</li></ul></li><li><p>xss攻击原理</p><ul><li>讲了一通</li></ul></li><li><p>怎么防御</p><ul><li>黑白名单，输出编码，httponly</li></ul></li><li><p>tcp三次握手</p></li><li><p>大概意思是学习到哪了，只会web吗？</p><ul><li>讲了下内网渗透</li></ul></li><li><p>性格咋样</p></li><li><p>对网络安全的兴趣</p></li><li><p>每天花多少学习网络安全</p></li><li><p>护网了解吗</p></li><li><p>网络安全其他分支进行过学习吗</p></li><li><p>挖过src吗</p></li><li><p>实战挖到过漏洞吗，讲下渗透测试经历</p><ul><li>讲了一下博彩网站渗透</li></ul></li><li><p>印象深刻的一次ctf比赛</p><ul><li>讲了一下天枢的一个题</li></ul></li><li><p>希望通过实习获得哪方面的提升</p></li><li><p>反问</p><ul><li>评价</li><li>工作模式和氛围</li></ul></li><li><p>后面紧接着就是hr面</p></li></ul>]]></content>
       
       
+      
+        <tags>
+            
+            <tag> 面经 </tag>
+            
+        </tags>
       
     </entry>
     
