@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>vulnhub靶场-HacksudoAliens</title>
+      <link href="/2024/07/11/vulnhub%E9%9D%B6%E5%9C%BA-HacksudoAliens/"/>
+      <url>/2024/07/11/vulnhub%E9%9D%B6%E5%9C%BA-HacksudoAliens/</url>
+      
+        <content type="html"><![CDATA[<h1 id="HacksudoAliens"><a href="#HacksudoAliens" class="headerlink" title="HacksudoAliens"></a>HacksudoAliens</h1><p><strong>前期准备</strong>：</p><p>靶机地址：<a href="https://www.vulnhub.com/entry/blogger-1,675/">https://www.vulnhub.com/entry/blogger-1,675/</a></p><p>攻击机IP：192.168.119.132</p><p>靶机IP：192.168.119.145</p><h2 id="信息收集及利用"><a href="#信息收集及利用" class="headerlink" title="信息收集及利用"></a>信息收集及利用</h2><p><strong>nmap扫</strong></p><p><img src="https://cdn.jsdelivr.net/gh/Squarehhh/DrawingBed/myblog/20240711160541.png"></p><p>开放了22,80,9000端口</p><p><strong>80端口</strong></p><p><img src="https://cdn.jsdelivr.net/gh/Squarehhh/DrawingBed/myblog/20240711163748.png"></p><p><strong>扫下目录</strong></p><p><img src="https://cdn.jsdelivr.net/gh/Squarehhh/DrawingBed/myblog/20240711165015.png"></p><p><strong>查看backup目录</strong></p><p><img src="https://cdn.jsdelivr.net/gh/Squarehhh/DrawingBed/myblog/20240711165102.png"></p><p>下载<code>mysql.bak</code>，查看</p><p><img src="https://cdn.jsdelivr.net/gh/Squarehhh/DrawingBed/myblog/20240711165127.png"></p><p>得到一组数据库账号密码<code>vishal/hacksudo</code></p><p><strong>9000端口</strong></p><p><img src="https://cdn.jsdelivr.net/gh/Squarehhh/DrawingBed/myblog/20240711165353.png"></p><p>这不正好吗，直接登录</p><p><strong>进入后台</strong></p><p><img src="https://cdn.jsdelivr.net/gh/Squarehhh/DrawingBed/myblog/20240711165420.png"></p><p>可以看见版本信息，找下漏洞</p><p><strong>查看是否开启了<code>security_file_priv</code></strong></p><p><img src="https://cdn.jsdelivr.net/gh/Squarehhh/DrawingBed/myblog/20240711165704.png"></p><p>为空，可以尝试写马</p><p><img src="https://cdn.jsdelivr.net/gh/Squarehhh/DrawingBed/myblog/20240711170636.png"></p><p>成功写入，蚁剑连接</p><p><img src="https://cdn.jsdelivr.net/gh/Squarehhh/DrawingBed/myblog/20240711170722.png"></p><p>弹个shell回来</p><p><img src="https://cdn.jsdelivr.net/gh/Squarehhh/DrawingBed/myblog/20240711170847.png"></p><p><img src="https://cdn.jsdelivr.net/gh/Squarehhh/DrawingBed/myblog/20240711170904.png"></p><p>升级shell</p><p><img src="https://cdn.jsdelivr.net/gh/Squarehhh/DrawingBed/myblog/20240711171250.png"></p><h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><p>尝试SUID提权</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find / -perm -u=s -type f 2&gt;/dev/null</span><br></pre></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/Squarehhh/DrawingBed/myblog/20240711171538.png"></p><p>这里我去<a href="https://gtfobins.github.io/">linux提权辅助网站</a>搜了搜，发现<code>/usr/bin/date</code>可以提权</p><p><img src="https://cdn.jsdelivr.net/gh/Squarehhh/DrawingBed/myblog/20240711171656.png"></p><p>也就是说可以以root权限读取文件，读取一下用户密码</p><p><img src="https://cdn.jsdelivr.net/gh/Squarehhh/DrawingBed/myblog/20240711171941.png"></p><p>得到hash值，保存一下爆破</p><p><img src="https://cdn.jsdelivr.net/gh/Squarehhh/DrawingBed/myblog/20240711173225.png"></p><p>这里root账号的密码爆破不出来，先登录<code>hacksudo</code>账户</p><p><img src="https://cdn.jsdelivr.net/gh/Squarehhh/DrawingBed/myblog/20240711173438.png"></p><p>再尝试提权</p><p><img src="https://cdn.jsdelivr.net/gh/Squarehhh/DrawingBed/myblog/20240711173509.png"></p><p>看这个<code>cpulimit</code></p><p><img src="https://cdn.jsdelivr.net/gh/Squarehhh/DrawingBed/myblog/20240711173559.png"></p><p>尝试提权</p><p><img src="https://cdn.jsdelivr.net/gh/Squarehhh/DrawingBed/myblog/20240711174014.png"></p><p>成功提权</p><p><img src="https://cdn.jsdelivr.net/gh/Squarehhh/DrawingBed/myblog/20240711174231.png"></p><blockquote><p>首先是phpmyadmin的漏洞，使用mysql写马，这个之前遇见过，这次算是巩固了一下。这次主要学习的就是SUID提权，如果一次性上不了root权限，可以分多次一步步提上去，然后是hash爆破也是之前见到的。总的来说：太菜了，还得练</p></blockquote>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>vulnhub靶场-BLOGGER</title>
       <link href="/2024/07/11/vulnhub%E9%9D%B6%E5%9C%BA-BLOGGER/"/>
       <url>/2024/07/11/vulnhub%E9%9D%B6%E5%9C%BA-BLOGGER/</url>
@@ -622,35 +635,6 @@
     
     
     <entry>
-      <title>Http请求头</title>
-      <link href="/2023/11/03/http%E8%AF%B7%E6%B1%82%E5%A4%B4%E7%B1%BB%E5%9E%8B%E9%A2%98/"/>
-      <url>/2023/11/03/http%E8%AF%B7%E6%B1%82%E5%A4%B4%E7%B1%BB%E5%9E%8B%E9%A2%98/</url>
-      
-        <content type="html"><![CDATA[<p>打开网页<img src="/../assets/image-20231103174305318.png" alt="image-20231103174305318"></p><p>在源码里面可以看见<img src="https://s2.loli.net/2023/11/04/qodnjrHBu2chwLU.png" alt="image-20231103174323627.png"></p><p>猜测在&#x2F;robots.txt<img src="https://s2.loli.net/2023/11/04/A5bqMhuQ7VyNFUz.png" alt="image-20231103174346380.png"></p><p>进入目标文件夹得到账号密码</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">username:admin</span><br><span class="line">password:@dm1N123456r00t#</span><br></pre></td></tr></table></figure><p>使用post方式提交</p><p><img src="https://s2.loli.net/2023/11/04/tQDvqNegnc79BWX.png" alt="image-20231103174625865.png"></p><p>对网页抓包，更改Referer内容为sycsec.com</p><p><img src="https://s2.loli.net/2023/11/04/Oc87y4Y591krFsq.png" alt="image-20231103174750798.png"></p><p>改浏览器为Syclove</p><p>r<img src="https://s2.loli.net/2023/11/04/mp6VfCyJNTR3WeS.png" alt="image-20231103174830405.png"></p><p>请求头中添加X-forwarded-for:127.0.0.1</p><p><img src="https://s2.loli.net/2023/11/04/P1qZeiVnoEJWMNh.png" alt="image-20231103174919839.png"></p><p>添加via：Syc.vip</p><p><img src="https://s2.loli.net/2023/11/04/NQ52tznvRLTwcEj.png" alt="image-20231103175027221.png"></p><p>添加O2TAKUXX:GiveMeFlag</p><p><img src="https://s2.loli.net/2023/11/04/3vMT7tqrQH9BDxN.png" alt="image-20231103175119952.png"></p><p>得到flag</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SYC&#123;HttP_1s_E@sY&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> ctf </category>
-          
-          <category> web </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> ctf </tag>
-            
-            <tag> web </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Aegis招新wp</title>
       <link href="/2023/11/03/Writeup/"/>
       <url>/2023/11/03/Writeup/</url>
@@ -672,6 +656,35 @@
             <tag> ctf </tag>
             
             <tag> wp </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Http请求头</title>
+      <link href="/2023/11/03/http%E8%AF%B7%E6%B1%82%E5%A4%B4%E7%B1%BB%E5%9E%8B%E9%A2%98/"/>
+      <url>/2023/11/03/http%E8%AF%B7%E6%B1%82%E5%A4%B4%E7%B1%BB%E5%9E%8B%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<p>打开网页<img src="/../assets/image-20231103174305318.png" alt="image-20231103174305318"></p><p>在源码里面可以看见<img src="https://s2.loli.net/2023/11/04/qodnjrHBu2chwLU.png" alt="image-20231103174323627.png"></p><p>猜测在&#x2F;robots.txt<img src="https://s2.loli.net/2023/11/04/A5bqMhuQ7VyNFUz.png" alt="image-20231103174346380.png"></p><p>进入目标文件夹得到账号密码</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">username:admin</span><br><span class="line">password:@dm1N123456r00t#</span><br></pre></td></tr></table></figure><p>使用post方式提交</p><p><img src="https://s2.loli.net/2023/11/04/tQDvqNegnc79BWX.png" alt="image-20231103174625865.png"></p><p>对网页抓包，更改Referer内容为sycsec.com</p><p><img src="https://s2.loli.net/2023/11/04/Oc87y4Y591krFsq.png" alt="image-20231103174750798.png"></p><p>改浏览器为Syclove</p><p>r<img src="https://s2.loli.net/2023/11/04/mp6VfCyJNTR3WeS.png" alt="image-20231103174830405.png"></p><p>请求头中添加X-forwarded-for:127.0.0.1</p><p><img src="https://s2.loli.net/2023/11/04/P1qZeiVnoEJWMNh.png" alt="image-20231103174919839.png"></p><p>添加via：Syc.vip</p><p><img src="https://s2.loli.net/2023/11/04/NQ52tznvRLTwcEj.png" alt="image-20231103175027221.png"></p><p>添加O2TAKUXX:GiveMeFlag</p><p><img src="https://s2.loli.net/2023/11/04/3vMT7tqrQH9BDxN.png" alt="image-20231103175119952.png"></p><p>得到flag</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SYC&#123;HttP_1s_E@sY&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> ctf </category>
+          
+          <category> web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ctf </tag>
+            
+            <tag> web </tag>
             
         </tags>
       
