@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>vulnhub靶场-DRIFTINGBLUES 6</title>
+      <link href="/2024/07/12/vulnhub%E9%9D%B6%E5%9C%BA-DRIFTINGBLUES-6/"/>
+      <url>/2024/07/12/vulnhub%E9%9D%B6%E5%9C%BA-DRIFTINGBLUES-6/</url>
+      
+        <content type="html"><![CDATA[<h1 id="DRIFTINGBLUES-6"><a href="#DRIFTINGBLUES-6" class="headerlink" title="DRIFTINGBLUES 6"></a>DRIFTINGBLUES 6</h1><p><strong>前期准备</strong></p><p>靶机地址：<a href="https://www.vulnhub.com/entry/driftingblues-6,672/">https://www.vulnhub.com/entry/driftingblues-6,672/</a></p><p>攻击机IP：192.168.119.132</p><p>靶机IP：192.168.119.146</p><h2 id="信息收集及利用"><a href="#信息收集及利用" class="headerlink" title="信息收集及利用"></a>信息收集及利用</h2><p><strong>nmap扫</strong></p><p><img src="https://cdn.jsdelivr.net/gh/Squarehhh/DrawingBed/myblog/20240712134220.png"></p><p><strong>80端口</strong></p><p><img src="https://cdn.jsdelivr.net/gh/Squarehhh/DrawingBed/myblog/20240712134320.png"></p><p><strong>扫目录</strong></p><p><img src="https://cdn.jsdelivr.net/gh/Squarehhh/DrawingBed/myblog/20240712134526.png"></p><p>在<code>/spammer</code>目录下载了一个zip文件，有密码，破解一下</p><p><img src="https://cdn.jsdelivr.net/gh/Squarehhh/DrawingBed/myblog/20240712134939.png"></p><p>破解出密码为<code>myspace4</code>，解压缩，一个txt文件，查看</p><p><img src="https://cdn.jsdelivr.net/gh/Squarehhh/DrawingBed/myblog/20240712135055.png"></p><p>一组账密<code>mayer/lionheart</code></p><p>查看<code>/robots</code>目录</p><p><img src="https://cdn.jsdelivr.net/gh/Squarehhh/DrawingBed/myblog/20240712135226.png"></p><p>有个目录，并且说不要忘记将<code>.zip</code>后缀加入爆破，但是其实前面已经爆破出来了</p><p><strong>访问目录<code>/textpattern/textpattern</code></strong></p><p><img src="https://cdn.jsdelivr.net/gh/Squarehhh/DrawingBed/myblog/20240712135332.png"></p><p>尝试登录下</p><p><img src="https://cdn.jsdelivr.net/gh/Squarehhh/DrawingBed/myblog/20240712135422.png"></p><p>登录成功，提示时区不安全，不必理会</p><p>进去随便翻翻，看见一个文件上传的路径</p><p><img src="https://cdn.jsdelivr.net/gh/Squarehhh/DrawingBed/myblog/20240712135919.png"></p><p>刚刚还翻到了文件上传的地方，尝试传一下</p><p><img src="https://cdn.jsdelivr.net/gh/Squarehhh/DrawingBed/myblog/20240712135947.png"></p><p><img src="https://cdn.jsdelivr.net/gh/Squarehhh/DrawingBed/myblog/20240712140107.png"></p><p>上传成功了</p><p><img src="https://cdn.jsdelivr.net/gh/Squarehhh/DrawingBed/myblog/20240712140158.png"></p><p>开启监听，访问文件，弹个shell</p><p><img src="https://cdn.jsdelivr.net/gh/Squarehhh/DrawingBed/myblog/20240712140256.png"></p><p>升级shell</p><p><img src="https://cdn.jsdelivr.net/gh/Squarehhh/DrawingBed/myblog/20240712140705.png"></p><h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><p>首先试一下SUID提权</p><p><img src="https://cdn.jsdelivr.net/gh/Squarehhh/DrawingBed/myblog/20240712140917.png"></p><p>没有可以提权的，用linpeas.sh跑一下看看</p><p><img src="https://cdn.jsdelivr.net/gh/Squarehhh/DrawingBed/myblog/20240712143054.png"></p><p>有脏牛漏洞，找个POC直接跑</p><p><img src="https://cdn.jsdelivr.net/gh/Squarehhh/DrawingBed/myblog/20240712143419.png"></p><p>提权成功</p><p><img src="https://cdn.jsdelivr.net/gh/Squarehhh/DrawingBed/myblog/20240712143522.png"></p><p>完成！！</p><blockquote><p>在做了几个靶场以后，对于信息收集一块已经很熟练了，包括一些工具的使用也比较熟练，这次学习了在不能SUID提权时如何去做，学习了一下<code>linpeas.sh</code>脚本的使用，在这使用了脏牛提权。对于提权这块还得加把劲。</p></blockquote>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> vulnhub </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>vulnhub靶场-HacksudoAliens</title>
       <link href="/2024/07/11/vulnhub%E9%9D%B6%E5%9C%BA-HacksudoAliens/"/>
       <url>/2024/07/11/vulnhub%E9%9D%B6%E5%9C%BA-HacksudoAliens/</url>
